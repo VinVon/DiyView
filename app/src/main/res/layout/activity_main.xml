@@ -7,13 +7,12 @@
     tools:context="com.demo.diyview.MainActivity">
 
     <com.demo.diyview.view.MyTextView
+        android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:text="sdsd"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:text="的撒打算等到大是大叔大苏打似的大是大叔大苏打"
+        app:textColor="@color/colorPrimary"
+        app:textSize="17dp"
+        />
 
 </android.support.constraint.ConstraintLayout>
