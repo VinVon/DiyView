@@ -16,4 +16,8 @@
         <attr name="stepSize" format="dimension"></attr>
         <attr name="stepColor" format="color"></attr>
     </declare-styleable>
+    <declare-styleable name="ColorTrackView">
+        <attr name="originColor" format="color"></attr>
+        <attr name="changeColor" format="color"></attr>
+    </declare-styleable>
 </resources>

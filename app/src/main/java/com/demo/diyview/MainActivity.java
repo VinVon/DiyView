@@ -7,18 +7,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.animation.DecelerateInterpolator;
 
+import com.demo.diyview.adapter.ListScreenAdapter;
+import com.demo.diyview.view.ColorTrackTextView;
+import com.demo.diyview.view.ListDataScreenView;
 import com.demo.diyview.view.MyTextView;
 import com.demo.diyview.view.View01;
 
 public class MainActivity extends AppCompatActivity {
     private View01 myTextView;
     private MyTextView mmyTextView;
+    private ColorTrackTextView colorTrackTextView;
+    private ListDataScreenView listDataScreenView;
+    private ListScreenAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initMyTextView();
-        initView01();//仿QQ计步器View
+//        initMyTextView();
+//        initView01();//仿QQ计步器View
+        initView();
+    }
+
+    private void initView() {
+//        colorTrackTextView = (ColorTrackTextView) findViewById(R.id.colorTextView);
+        listDataScreenView = (ListDataScreenView) this.findViewById(R.id.view111);
+        listDataScreenView.setAdapter(new ListScreenAdapter(this));
     }
 
     private void initMyTextView() {

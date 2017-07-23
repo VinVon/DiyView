@@ -1,31 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="40dp"
     tools:context="com.demo.diyview.MainActivity">
 
     <com.demo.diyview.view.View01
-        android:visibility="gone"
+        android:id="@+id/test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:outerColor="@color/colorAccent"
-        app:innerColor="@color/colorPrimary"
+        android:visibility="gone"
         app:cycleWithd="6dp"
+        app:innerColor="@color/colorPrimary"
+        app:outerColor="@color/colorAccent"
         app:stepColor="@color/colorPrimary"
-        app:stepSize="36sp"
-        android:id="@+id/test"
-        />
+        app:stepSize="36sp" />
+
     <com.demo.diyview.view.MyTextView
         android:id="@+id/myTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:mtextColor="@color/colorPrimary"
-        app:mtextSize="20sp"
         android:padding="10dp"
+        android:visibility="gone"
         app:mtext="Hello"
-        />
-</LinearLayout>
+        app:mtextColor="@color/colorPrimary"
+        app:mtextSize="20sp" />
+
+    <com.demo.diyview.view.ColorTrackTextView
+        android:id="@+id/colorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="体育"
+        android:visibility="gone" />
+
+    <com.demo.diyview.view.ListDataScreenView
+        android:id="@+id/view111"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.demo.diyview.view.ListDataScreenView>
+</RelativeLayout>
