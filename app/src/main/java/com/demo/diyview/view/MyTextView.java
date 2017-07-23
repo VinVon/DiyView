@@ -9,8 +9,10 @@ import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.LinearLayout;
 
 
 import com.demo.diyview.R;
@@ -24,11 +26,10 @@ import java.util.Set;
  * Created by raytine on 2017/7/14.
  */
 
-public class MyTextView extends View {
+public class MyTextView extends LinearLayout {
     private String text;
     private int textSize = 15;
     private int textColor = Color.RED;
-    private Rect rect;
     private Paint paint;
     public MyTextView(Context context) {
         this(context,null);
@@ -42,15 +43,19 @@ public class MyTextView extends View {
         super(context, attrs, defStyleAttr);
         //获取自定义属性
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MyTextView);
-        text =  typedArray.getString(R.styleable.MyTextView_text);
-        textColor =  typedArray.getColor(R.styleable.MyTextView_textColor,textColor);
-        textSize =  typedArray.getDimensionPixelSize(R.styleable.MyTextView_textSize,textSize);
+        text =  typedArray.getString(R.styleable.MyTextView_mtext);
+        textColor =  typedArray.getColor(R.styleable.MyTextView_mtextColor,textColor);
+        textSize =  typedArray.getDimensionPixelSize(R.styleable.MyTextView_mtextSize,sp2px(textSize));
         typedArray.recycle();
         paint = new Paint();
+        paint.setAntiAlias(true);//抗锯齿
         paint.setColor(textColor);
         paint.setTextSize(textSize);
-        rect = new Rect();
-        paint.getTextBounds(text,0,text.length(),rect);
+        setWillNotDraw(false);
+    }
+
+    private int sp2px(int sp) {
+        return (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,sp,getResources().getDisplayMetrics());
     }
 
     /**
@@ -65,16 +70,21 @@ public class MyTextView extends View {
         //获取宽高的模式
         int mode_width = MeasureSpec.getMode(widthMeasureSpec);
         int mode_height = MeasureSpec.getMode(heightMeasureSpec);
-        int size_width = MeasureSpec.getSize(widthMeasureSpec);
-        int size_height = MeasureSpec.getSize(heightMeasureSpec);
-        if (mode_width == MeasureSpec.AT_MOST && mode_height == MeasureSpec.AT_MOST){
-                 setMeasuredDimension(getWidth(),getHeight());
-                }else if(mode_width == MeasureSpec.AT_MOST){
-                 setMeasuredDimension(getWidth(),size_height);
-                }else if(mode_height == MeasureSpec.AT_MOST){
-                 setMeasuredDimension(size_width,getHeight());
+        //1 确定的值
+        int width = MeasureSpec.getSize(widthMeasureSpec);
+        int height = MeasureSpec.getSize(heightMeasureSpec);
+        //不确定的值
+        if (mode_width == MeasureSpec.AT_MOST){
+            Rect rect = new Rect();
+            paint.getTextBounds(text,0,text.length(),rect);
+            width = rect.width()+getPaddingLeft()+getPaddingRight();
         }
-
+        if (mode_height == MeasureSpec.AT_MOST){
+            Rect rect = new Rect();
+            paint.getTextBounds(text,0,text.length(),rect);
+            height = rect.height()+getPaddingTop()+getPaddingBottom();
+        }
+        setMeasuredDimension(width,height);
     }
 
     /**
@@ -83,17 +93,11 @@ public class MyTextView extends View {
      */
     @Override
     protected void onDraw(Canvas canvas) {
-
-        canvas.drawRect(0,0,getWidth(),getHeight(),paint);
-        canvas.save();
-        //然后再调用父类的构造方法完成绘制
-        super.onDraw(canvas);
-        //取出画布的状态属性
-        canvas.restore();
-        paint.setColor(Color.RED);
-
-        canvas.drawText(text,getWidth()/2-rect.width()/2,getHeight()/2+rect.height()/2,paint);
-
+        //基线 baselines
+        Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
+        int dy = (fontMetricsInt.bottom-fontMetricsInt.top)/2-fontMetricsInt.bottom; //基线到高度一半的距离
+        int baseLines = getHeight()/2 + dy;
+        canvas.drawText(text,getPaddingLeft(),baseLines,paint);
     }
 
     /**
@@ -114,6 +118,7 @@ public class MyTextView extends View {
                 Log.e("-----------","手指移动");
                 break;
         }
+        invalidate();
         return true;
     }
     public void setOnCliCkhaha(OnClickListener li){
