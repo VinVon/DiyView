@@ -1,8 +1,13 @@
 <resources>
     <declare-styleable name="MyTextView">
-        <attr name="text" format="string"></attr>
-        <attr name="textSize" format="dimension"></attr>
-        <attr name="textColor" format="color"></attr>
+        <attr name="mtext" format="string"></attr>
+        <attr name="mtextSize" format="dimension"></attr>
+        <attr name="mtextColor" format="color"></attr>
+       <attr name="minputtype">
+           <enum name="mnumber" value="1"></enum>
+           <enum name="mtext" value="2"></enum>
+           <enum name="mpassword" value="3"></enum>
+       </attr>
     </declare-styleable>
     <declare-styleable name="QQStepView">
         <attr name="outerColor" format="color"></attr>

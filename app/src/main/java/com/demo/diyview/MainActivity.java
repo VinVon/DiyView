@@ -7,14 +7,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.animation.DecelerateInterpolator;
 
+import com.demo.diyview.view.MyTextView;
 import com.demo.diyview.view.View01;
 
 public class MainActivity extends AppCompatActivity {
     private View01 myTextView;
+    private MyTextView mmyTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initMyTextView();
+        initView01();//仿QQ计步器View
+    }
+
+    private void initMyTextView() {
+        mmyTextView = (MyTextView) this.findViewById(R.id.myTextView);
+
+    }
+
+    private void initView01() {
         myTextView = (View01) findViewById(R.id.test);
         myTextView.setmStepMax(4000);
         //属性动画
