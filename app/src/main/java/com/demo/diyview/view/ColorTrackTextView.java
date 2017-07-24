@@ -8,9 +8,6 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.widget.TextView;
-
-
 import com.demo.diyview.R;
 
 
@@ -19,17 +16,18 @@ import com.demo.diyview.R;
  * Created by 123 on 2017/7/23.
  */
 
-public class ColorTrackTextView extends TextView {
+public class ColorTrackTextView extends android.support.v7.widget.AppCompatTextView {
     private int orginColor = Color.BLACK;
     private int changeColor = Color.RED;
     private Paint originPaint ;
     private Paint changePaint;
+    private float mCurrentProgress = 0.5f;
     public ColorTrackTextView(Context context) {
         this(context,null);
     }
 
     public ColorTrackTextView(Context context, @Nullable AttributeSet attrs) {
-        this(context, null,0);
+        this(context, attrs,0);
     }
 
     public ColorTrackTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -56,13 +54,23 @@ public class ColorTrackTextView extends TextView {
     @Override
     protected void onDraw(Canvas canvas) {
 //        super.onDraw(canvas);
+        canvas.save();
+        //根据当前进度算出需要画不变色长度的文字
+        int left  = (int) (mCurrentProgress*getWidth());
+        canvas.clipRect(0,0,left,getHeight());
         String text = getText().toString();
         Rect rect = new Rect();
-        changePaint.getTextBounds(text,0,text.length(),rect);
+        originPaint.getTextBounds(text,0,text.length(),rect);
         int x = getWidth()/2- rect.width()/2;
-        Paint.FontMetricsInt fontMetricsInt = changePaint.getFontMetricsInt();
+        Paint.FontMetricsInt fontMetricsInt = originPaint.getFontMetricsInt();
         int dy = (fontMetricsInt.bottom-fontMetricsInt.top)/2-fontMetricsInt.bottom;
         int baseLines = getHeight()/2+dy;
+        canvas.drawText(text,x,baseLines,originPaint);
+        canvas.restore();
+        //变色文字长度
+        canvas.save();
+        canvas.clipRect(left,0,getWidth(),getHeight());
         canvas.drawText(text,x,baseLines,changePaint);
+        canvas.restore();
     }
 }

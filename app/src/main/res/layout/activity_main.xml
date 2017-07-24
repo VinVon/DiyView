@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.demo.diyview.MainActivity">
+    >
 
     <com.demo.diyview.view.View01
         android:id="@+id/test"
@@ -32,12 +32,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="体育"
-        android:visibility="gone" />
+
+         />
 
     <com.demo.diyview.view.ListDataScreenView
+        android:visibility="gone"
         android:id="@+id/view111"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
     </com.demo.diyview.view.ListDataScreenView>
 </RelativeLayout>

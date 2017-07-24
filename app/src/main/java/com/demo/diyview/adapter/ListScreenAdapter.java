@@ -8,8 +8,6 @@ import android.widget.TextView;
 
 import com.demo.diyview.R;
 
-import org.w3c.dom.Text;
-
 /**
  * Created by 123 on 2017/7/23.
  */

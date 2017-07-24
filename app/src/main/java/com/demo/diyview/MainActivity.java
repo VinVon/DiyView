@@ -2,7 +2,6 @@ package com.demo.diyview;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
-import android.renderscript.Sampler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.animation.DecelerateInterpolator;
@@ -12,6 +11,7 @@ import com.demo.diyview.view.ColorTrackTextView;
 import com.demo.diyview.view.ListDataScreenView;
 import com.demo.diyview.view.MyTextView;
 import com.demo.diyview.view.View01;
+
 
 public class MainActivity extends AppCompatActivity {
     private View01 myTextView;
@@ -29,9 +29,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-//        colorTrackTextView = (ColorTrackTextView) findViewById(R.id.colorTextView);
-        listDataScreenView = (ListDataScreenView) this.findViewById(R.id.view111);
-        listDataScreenView.setAdapter(new ListScreenAdapter(this));
+        //字体变色
+        colorTrackTextView = (ColorTrackTextView) findViewById(R.id.colorTextView);
+        //常见多条目属性菜单
+//        listDataScreenView = (ListDataScreenView) this.findViewById(R.id.view111);
+//        listDataScreenView.setAdapter(new ListScreenAdapter(this));
     }
 
     private void initMyTextView() {
