@@ -32,9 +32,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="体育"
-
          />
-
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="left_to_right"/>
+        <Button
+            android:id="@+id/btn_2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="right_to_left"/>
+    </LinearLayout>
     <com.demo.diyview.view.ListDataScreenView
         android:visibility="gone"
         android:id="@+id/view111"

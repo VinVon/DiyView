@@ -20,4 +20,17 @@
         <attr name="originColor" format="color"></attr>
         <attr name="changeColor" format="color"></attr>
     </declare-styleable>
+
+    <declare-styleable name="progressView">
+        <attr name="progressoutCycleColor" format="color"></attr>
+        <attr name="progressinnerCycleColor" format="color"></attr>
+        <attr name="progresstextColor" format="color"></attr>
+        <attr name="progresstextSize" format="dimension"></attr>
+        <attr name="progressCycleWidth" format="dimension"></attr>
+    </declare-styleable>
+    <declare-styleable name="ChangeView">
+        <attr name="rectangularColor" format="color"></attr>
+        <attr name="triangleColor" format="color"></attr>
+        <attr name="circularColor" format="color"></attr>
+    </declare-styleable>
 </resources>

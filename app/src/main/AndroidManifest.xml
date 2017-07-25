@@ -11,14 +11,23 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"
            android:launchMode="singleTask" >
+
+        </activity>
+        <activity android:name=".NextActivity"
+            ></activity>
+        <activity android:name=".ColorTrackActivity">
+
+        </activity>
+        <activity android:name=".progress.ProgressActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NextActivity"
-            ></activity>
+        <activity android:name=".progress.ChangeActivity">
+
+        </activity>
     </application>
 
 </manifest>

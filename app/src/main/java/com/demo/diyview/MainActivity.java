@@ -4,7 +4,9 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.Button;
 
 import com.demo.diyview.adapter.ListScreenAdapter;
 import com.demo.diyview.view.ColorTrackTextView;
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private ColorTrackTextView colorTrackTextView;
     private ListDataScreenView listDataScreenView;
     private ListScreenAdapter adapter;
+    private Button btn_1,btn_2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,11 +29,48 @@ public class MainActivity extends AppCompatActivity {
 //        initMyTextView();
 //        initView01();//仿QQ计步器View
         initView();
+
     }
 
     private void initView() {
         //字体变色
         colorTrackTextView = (ColorTrackTextView) findViewById(R.id.colorTextView);
+        btn_1 = (Button) findViewById(R.id.btn_1);
+        btn_2 = (Button) findViewById(R.id.btn_2);
+        btn_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                colorTrackTextView.setmDireciton(ColorTrackTextView.Direction.LRFT_TO_RIFHT);
+                ValueAnimator valueAnimator = ObjectAnimator.ofFloat(0, 1);
+                valueAnimator.setDuration(2000);
+                valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator animation) {
+                        float animatedValue = (float) animation.getAnimatedValue();
+
+                        colorTrackTextView.setmCurrentProgress(animatedValue);
+                    }
+                });
+                valueAnimator.start();
+            }
+        });
+        btn_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                colorTrackTextView.setmDireciton(ColorTrackTextView.Direction.RIGHT_TO_LEFT);
+                ValueAnimator valueAnimator = ObjectAnimator.ofFloat(0, 1);
+                valueAnimator.setDuration(2000);
+                valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator animation) {
+                        float animatedValue = (float) animation.getAnimatedValue();
+
+                        colorTrackTextView.setmCurrentProgress(animatedValue);
+                    }
+                });
+                valueAnimator.start();
+            }
+        });
         //常见多条目属性菜单
 //        listDataScreenView = (ListDataScreenView) this.findViewById(R.id.view111);
 //        listDataScreenView.setAdapter(new ListScreenAdapter(this));

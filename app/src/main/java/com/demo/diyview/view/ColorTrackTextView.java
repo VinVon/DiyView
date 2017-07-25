@@ -21,7 +21,12 @@ public class ColorTrackTextView extends android.support.v7.widget.AppCompatTextV
     private int changeColor = Color.RED;
     private Paint originPaint ;
     private Paint changePaint;
-    private float mCurrentProgress = 0.5f;
+    private float mCurrentProgress = 0.0f;
+    private Direction mDireciton =Direction.LRFT_TO_RIFHT;
+    public enum Direction{
+        LRFT_TO_RIFHT,
+        RIGHT_TO_LEFT
+    }
     public ColorTrackTextView(Context context) {
         this(context,null);
     }
@@ -54,23 +59,41 @@ public class ColorTrackTextView extends android.support.v7.widget.AppCompatTextV
     @Override
     protected void onDraw(Canvas canvas) {
 //        super.onDraw(canvas);
-        canvas.save();
-        //根据当前进度算出需要画不变色长度的文字
         int left  = (int) (mCurrentProgress*getWidth());
-        canvas.clipRect(0,0,left,getHeight());
+        if (mDireciton == Direction.LRFT_TO_RIFHT ){
+            //根据当前进度算出需要画不变色长度的文字
+            drawText(canvas,0,left,changePaint); //
+            //变色文字长度
+            drawText(canvas,left,getWidth(),originPaint);
+        }else{
+
+            //根据当前进度算出需要画不变色长度的文字
+            drawText(canvas,getWidth()-left,getWidth(),changePaint);
+            //变色文字长度
+            drawText(canvas,0,getWidth()-left,originPaint);
+
+        }
+    }
+    private void drawText(Canvas canvas,int start,int end,Paint paint){
+        canvas.save();
+        canvas.clipRect(start,0,end,getHeight());
         String text = getText().toString();
         Rect rect = new Rect();
-        originPaint.getTextBounds(text,0,text.length(),rect);
+        paint.getTextBounds(text,0,text.length(),rect);
         int x = getWidth()/2- rect.width()/2;
-        Paint.FontMetricsInt fontMetricsInt = originPaint.getFontMetricsInt();
+        Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
         int dy = (fontMetricsInt.bottom-fontMetricsInt.top)/2-fontMetricsInt.bottom;
         int baseLines = getHeight()/2+dy;
-        canvas.drawText(text,x,baseLines,originPaint);
+        canvas.drawText(text,x,baseLines,paint);
         canvas.restore();
-        //变色文字长度
-        canvas.save();
-        canvas.clipRect(left,0,getWidth(),getHeight());
-        canvas.drawText(text,x,baseLines,changePaint);
-        canvas.restore();
+    }
+
+    public void setmDireciton(Direction mDireciton) {
+        this.mDireciton = mDireciton;
+    }
+
+    public void setmCurrentProgress(float mCurrentProgress) {
+        this.mCurrentProgress = mCurrentProgress;
+        invalidate();
     }
 }
