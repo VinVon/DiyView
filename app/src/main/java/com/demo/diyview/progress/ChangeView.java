@@ -8,9 +8,12 @@ import android.graphics.Path;
 import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.demo.diyview.R;
+
+
 
 /**
  * Created by raytine on 2017/7/25.
@@ -22,6 +25,9 @@ public class ChangeView extends View {
     private int cricularColor  = getResources().getColor(R.color.lime);
     private Type type = Type.TRIANGLE;
     private Paint paint;
+
+
+
     public enum Type{
         RECTANGLULAR,
         TRIANGLE,
@@ -72,11 +78,12 @@ public class ChangeView extends View {
         }else if(type == Type.TRIANGLE){
             setPaintColor(triangleColor);
             Path path = new Path();
-            path.moveTo(getWidth()/2-width/2,getHeight()/2+height/2);
-            path.lineTo(getWidth()/2,getHeight()/2-height/2);
-            path.lineTo(getWidth()/2+width/2,getHeight()/2+height/2);
-            path.lineTo(getWidth()/2-width/2,getHeight()/2+height/2);
+            path.moveTo(getWidth()/2,0);
+            path.lineTo(0, (float) (getHeight()/2*Math.sqrt(3)));
+            path.lineTo(getWidth(),(float) (getHeight()/2*Math.sqrt(3)));
+            path.lineTo(getWidth()/2,0);
             canvas.drawPath(path,paint);
+            Log.e("-----view",getWidth() +" :"+width);
         }else{
             setPaintColor(cricularColor);
             canvas.drawCircle(getWidth()/2,getHeight()/2,width/2,paint);
@@ -90,4 +97,5 @@ public class ChangeView extends View {
         this.type = type;
         invalidate();
     }
+
 }

@@ -47,7 +47,10 @@ public class ChangeActivity extends AppCompatActivity {
         setContentView(R.layout.change_activity);
         ButterKnife.bind(this);
         initView();
+
     }
+
+
 
     private void initView() {
        if (timer != null){

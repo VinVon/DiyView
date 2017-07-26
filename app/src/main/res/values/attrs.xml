@@ -33,4 +33,9 @@
         <attr name="triangleColor" format="color"></attr>
         <attr name="circularColor" format="color"></attr>
     </declare-styleable>
+    <declare-styleable name="ratingBarView">
+        <attr name="rtSelector" format="reference"></attr>
+        <attr name="rtUnSelector" format="reference"></attr>
+        <attr name="rtStartCount" format="integer"></attr>
+    </declare-styleable>
 </resources>

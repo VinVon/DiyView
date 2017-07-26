@@ -9,6 +9,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
 
 import com.demo.diyview.R;
@@ -47,7 +48,9 @@ public class PregressView extends View {
         typedArray.recycle();
         initPaint();
     }
-
+    private float diptopx(int dip){
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,dip,getResources().getDisplayMetrics());
+    }
     private void initPaint() {
         //外圆弧paint
         paint1 = new Paint();
@@ -55,7 +58,7 @@ public class PregressView extends View {
         paint1.setColor(mOutCycleColor);
         paint1.setStrokeWidth(cycleWidth);
         paint1.setStyle(Paint.Style.STROKE);
-        paint1.setStrokeCap(Paint.Cap.ROUND);
+//        paint1.setStrokeCap(Paint.Cap.ROUND);
         //内圆弧paint
         paint2 = new Paint();
         paint2.setAntiAlias(true);
@@ -86,9 +89,10 @@ public class PregressView extends View {
 //        super.onDraw(canvas);
         //画外圆
         RectF rectF = new RectF(cycleWidth / 2, cycleWidth / 2, getWidth() - cycleWidth / 2, getHeight() - cycleWidth / 2);
-        canvas.drawArc(rectF, 180, 360, false, paint1);
+//        canvas.drawArc(rectF, 180, 360, false, paint1);
+        canvas.drawCircle(getWidth()/2,getWidth()/2,getWidth()/2-cycleWidth/2,paint1);
         float percent = ((float) stepCurrent / stepMax);
-        canvas.drawArc(rectF, 180, 360 * percent, false, paint2);
+        canvas.drawArc(rectF, 0, 360 * percent, false, paint2);
         if (stepMax != 0 && stepCurrent != 0) {
             //画文字
             float i = (float) stepCurrent / stepMax;
