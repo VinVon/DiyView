@@ -24,6 +24,12 @@
 
         </activity>
         <activity android:name=".view06.RatingBarActivity">
+
+        </activity>
+        <activity android:name=".view07.LetterActivity">
+
+        </activity>
+        <activity android:name=".view08.View08Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
