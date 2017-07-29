@@ -30,6 +30,9 @@
 
         </activity>
         <activity android:name=".view08.View08Activity">
+
+        </activity>
+        <activity android:name=".view09.TagViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
