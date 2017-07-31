@@ -16,7 +16,7 @@ import com.demo.diyview.R;
 
 public class circleView extends View {
     private Paint mPaint;
-
+    private int mColor;
     public circleView(Context context) {
         super(context);
         mPaint =  new Paint();
@@ -39,20 +39,14 @@ public class circleView extends View {
         super.onDraw(canvas);
         canvas.drawCircle(getWidth()/2,getHeight()/2,20,mPaint);
     }
-    public void getLeftCitcleView(int c){
-        mPaint.setColor(c);
-        invalidate();
-    }
-    public void getMiddleCitcleView(int c){
-        mPaint.setColor(c);
-        invalidate();
-    }
-    public void getRightCitcleView(int c){
-        mPaint.setColor(c);
-        invalidate();
-    }
+
     public void changeColor(int color){
+        mColor = color;
         mPaint.setColor(color);
         invalidate();
     };
+
+    public int getmColor() {
+        return mColor;
+    }
 }

@@ -36,14 +36,14 @@
 
         </activity>
         <activity android:name=".view22.FlowerActivity">
-
-        </activity>
-        <activity android:name=".view23.MeaasgeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".view23.MeaasgeActivity">
+
         </activity>
     </application>
 
