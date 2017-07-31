@@ -59,6 +59,7 @@ public class MessageBubbleView extends View {
         Path path = getBerserPath();
         if (path !=null) {
             canvas.drawCircle(p2.x, p2.y, gudingRadius, mPaint1);
+            canvas.drawPath(path,mPaint1);
         }
     }
 
@@ -108,10 +109,26 @@ public class MessageBubbleView extends View {
     public Path getBerserPath() {
         distance = getdistance();
         gudingRadius = (int) (distanceMax - distance / 14);
-        if (gudingRadius > distanceMin){
+        if (gudingRadius < distanceMin){
             return null;
         }
+        Path path = new Path();
+        double tanA = Math.atan((p1.y-p2.y)/(p1.x-p2.x));
+        PointF px0 = new PointF((float) (p2.x+gudingRadius*Math.sin(tanA)),p2.y-(float) (gudingRadius*Math.cos(tanA)));
+        PointF px1 = new PointF((float) (p1.x+tagRaduis*Math.sin(tanA)),p1.y-(float) (tagRaduis*Math.cos(tanA)));
+        PointF px2 = new PointF((float) (p1.x-tagRaduis*Math.sin(tanA)),p1.y+(float) (tagRaduis*Math.cos(tanA)));
+        PointF px3 = new PointF((float) (p2.x-gudingRadius*Math.sin(tanA)),p2.y+(float) (gudingRadius*Math.cos(tanA)));
+        path.moveTo(px0.x,px0.y);
+        PointF pointF = getcontrolPoint();
+        path.quadTo(pointF.x,pointF.y,px1.x,px1.y);
+        path.lineTo(px2.x,px2.y);
+        path.quadTo(pointF.x,pointF.y,px3.x,px3.y);
+        path.close();
+        return path;
+    }
 
-        return null;
+    public PointF getcontrolPoint() {
+
+        return new PointF((p1.x+p2.x)/2,(p1.y+p2.y)/2);
     }
 }
