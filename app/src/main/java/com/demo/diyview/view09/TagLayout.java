@@ -48,6 +48,9 @@ public class TagLayout extends ViewGroup {
         ArrayList<View> childViews = new ArrayList<>();
         for (int i = 0; i <childCount ; i++) {
             View childView = getChildAt(i);
+            if (childView.getVisibility() == GONE){
+                continue;
+            }
             measureChild(childView,widthMeasureSpec,heightMeasureSpec);
             //margin值
             ViewGroup.MarginLayoutParams layoutParams = (MarginLayoutParams) childView.getLayoutParams();
@@ -73,6 +76,7 @@ public class TagLayout extends ViewGroup {
                 }
             }
         }
+
         setMeasuredDimension(width,height);
     }
 
@@ -93,6 +97,9 @@ public class TagLayout extends ViewGroup {
        for (List<View> views :mChildViews){
            left = getPaddingLeft();
             for (View mView : views){
+                if (mView.getVisibility() == GONE){
+                    continue;
+                }
                 ViewGroup.MarginLayoutParams layoutParams = (MarginLayoutParams) mView.getLayoutParams();
                 left+=layoutParams.leftMargin;
                 int childTop = top + layoutParams.topMargin;

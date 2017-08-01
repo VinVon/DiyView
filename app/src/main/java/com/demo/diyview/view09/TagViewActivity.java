@@ -34,12 +34,13 @@ public class TagViewActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        strings.add("苍井空");
-        strings.add("苍井空1");
-        strings.add("苍井空2");
-        strings.add("苍井空3");
-        strings.add("苍井空4");
-        strings.add("苍井空5");
+        strings.add("面对疾风吧");
+        strings.add("的萨芬的");
+        strings.add("佛挡杀佛");
+        strings.add("我说");
+        strings.add("额");
+        strings.add("高大上个任务");
+        strings.add("防守打法服务范围");
         tagView.setmBaseTagAdapter(new BaseTagAdapter() {
             @Override
             public int getCount() {

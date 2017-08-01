@@ -19,6 +19,7 @@
 
         </activity>
         <activity android:name=".progress.ProgressActivity">
+
         </activity>
         <activity android:name=".progress.ChangeActivity">
 
@@ -35,12 +36,20 @@
         <activity android:name=".view09.TagViewActivity">
 
         </activity>
-        <activity android:name=".view22.FlowerActivity">
+        <activity android:name=".view10.TouchActivity">
+
+        </activity>
+        <activity android:name=".view11.TouchViewGroupActivity">
+
+        </activity>
+        <activity android:name=".view12.Activity12">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".view22.FlowerActivity">
         </activity>
         <activity android:name=".view23.MeaasgeActivity">
 

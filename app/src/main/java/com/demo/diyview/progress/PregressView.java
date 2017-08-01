@@ -92,7 +92,8 @@ public class PregressView extends View {
 //        canvas.drawArc(rectF, 180, 360, false, paint1);
         canvas.drawCircle(getWidth()/2,getWidth()/2,getWidth()/2-cycleWidth/2,paint1);
         float percent = ((float) stepCurrent / stepMax);
-        canvas.drawArc(rectF, 0, 360 * percent, false, paint2);
+        canvas.drawArc(rectF, 90, 180 * percent, false, paint2);
+        canvas.drawArc(rectF, 90, -180 * percent, false, paint2);
         if (stepMax != 0 && stepCurrent != 0) {
             //画文字
             float i = (float) stepCurrent / stepMax;
