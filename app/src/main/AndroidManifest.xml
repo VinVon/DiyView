@@ -43,6 +43,9 @@
 
         </activity>
         <activity android:name=".view12.Activity12">
+
+        </activity>
+        <activity android:name=".view14.Activity14">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

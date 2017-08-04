@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.demo.diyview.R;
+import com.demo.diyview.view13.QQSlidingMenu;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,7 +23,7 @@ public class Activity12 extends AppCompatActivity {
     @BindView(R.id.headView)
     ImageView headView;
     @BindView(R.id.sliding)
-    XjSlidingMenu sliding;
+    QQSlidingMenu sliding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
