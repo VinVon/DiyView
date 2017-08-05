@@ -28,15 +28,14 @@ public class VerticalDragView extends FrameLayout {
         viewDragHelper = ViewDragHelper.create(this,1.0f, new ViewDragHelper.Callback() {
             @Override
             public boolean tryCaptureView(View child, int pointerId) {
+
                 return true;
             }
 
             @Override
             public int clampViewPositionHorizontal(View child, int left, int dx) {
-                final int leftBound = getPaddingLeft();
-                final int rightBound = getWidth() - view2   .getWidth() - leftBound;
-                final int newLeft = Math.min(Math.max(left, leftBound), rightBound);
-                return newLeft;
+
+                return left;
 
             }
 
@@ -47,16 +46,15 @@ public class VerticalDragView extends FrameLayout {
         });
     }
 
-    public VerticalDragView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-
         view1 = getChildAt(0);
         view2 = getChildAt(1);
+    }
+
+    public VerticalDragView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
     }
 
     @Override
@@ -66,7 +64,7 @@ public class VerticalDragView extends FrameLayout {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        viewDragHelper.shouldInterceptTouchEvent(event);
+        viewDragHelper.processTouchEvent(event);
         return true;
     }
 }
