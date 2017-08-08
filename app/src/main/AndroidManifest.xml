@@ -57,6 +57,9 @@
         <activity android:name=".view23.MeaasgeActivity">
 
         </activity>
+        <activity android:name=".view26.Activity26">
+
+        </activity>
     </application>
 
 </manifest>
