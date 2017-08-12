@@ -54,11 +54,7 @@
         </activity>
         <activity android:name=".view16.Activity16"></activity>
         <activity android:name=".view17.Activity17">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".view22.FlowerActivity">
         </activity>
@@ -67,6 +63,13 @@
         </activity>
         <activity android:name=".view26.Activity26">
 
+        </activity>
+        <activity android:name=".view27.Activity27">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
