@@ -10,7 +10,14 @@
 
         <color name="transparent_50_black">#7f000000</color>
         <color name="transparent_50_gray">#7fd3d3d3</color>
-
+    <array name="colorsss">
+        <item>@color/pink</item>
+        <item>@color/gold</item>
+        <item>@color/orange</item>
+        <item>@color/colorAccent</item>
+        <item>@color/fuchsia</item>
+        <item>@color/red</item>
+    </array>
         <color name="pink">#ffc0cb</color>
         <!--粉红色 -->
         <color name="lightpink">#ffb6c1</color>
