@@ -60,9 +60,9 @@ public class StatusBarUtil {
             ViewGroup decorView = (ViewGroup) activity.getWindow().getDecorView();
             decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN );
             activity.getWindow().setStatusBarColor(Color.TRANSPARENT);
-            ViewGroup viewById = (ViewGroup) activity.findViewById(android.R.id.content);
-            View childAt = viewById.getChildAt(0);
-            childAt.setFitsSystemWindows(true);
+//            ViewGroup viewById = (ViewGroup) activity.findViewById(android.R.id.content);
+//            View childAt = viewById.getChildAt(0);
+//            childAt.setFitsSystemWindows(true);
         }
         //4.4-5.0之间
         else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
