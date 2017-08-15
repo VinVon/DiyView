@@ -1,6 +1,8 @@
 package com.demo.diyview.view28;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
@@ -22,5 +24,12 @@ public class Activity28 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity28_main);
         ButterKnife.bind(this);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loadingView.dispear();
+            }
+        },5000);
     }
 }
