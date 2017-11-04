@@ -9,65 +9,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-           android:launchMode="singleTask" >
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTask"></activity>
+        <activity android:name=".NextActivity" />
+        <activity android:name=".ColorTrackActivity"></activity>
+        <activity android:name=".progress.ProgressActivity"></activity>
+        <activity android:name=".progress.ChangeActivity"></activity>
+        <activity android:name=".view06.RatingBarActivity"></activity>
+        <activity android:name=".view07.LetterActivity"></activity>
+        <activity android:name=".view08.View08Activity"></activity>
+        <activity android:name=".view09.TagViewActivity"></activity>
+        <activity android:name=".view10.TouchActivity"></activity>
+        <activity android:name=".view11.TouchViewGroupActivity"></activity>
+        <activity android:name=".view12.Activity12"></activity>
+        <activity android:name=".view14.Activity14"></activity>
+        <activity android:name=".view15.Activity15"></activity>
+        <activity android:name=".view16.Activity16" />
+        <activity android:name=".view17.Activity17"></activity>
+        <activity android:name=".view22.FlowerActivity"></activity>
+        <activity android:name=".view23.MeaasgeActivity"></activity>
+        <activity android:name=".view26.Activity26"></activity>
+        <activity android:name=".view27.Activity27"></activity>
+        <activity android:name=".view28.Activity28"></activity>
+        <activity android:name=".test.TestActivity"></activity>
+        <activity android:name=".view.ColorTrackActivity">
 
         </activity>
-        <activity android:name=".NextActivity"
-
-            ></activity>
-        <activity android:name=".ColorTrackActivity">
-
-        </activity>
-        <activity android:name=".progress.ProgressActivity">
-
-        </activity>
-        <activity android:name=".progress.ChangeActivity">
-
-        </activity>
-        <activity android:name=".view06.RatingBarActivity">
-
-        </activity>
-        <activity android:name=".view07.LetterActivity">
-
-        </activity>
-        <activity android:name=".view08.View08Activity">
-
-        </activity>
-        <activity android:name=".view09.TagViewActivity">
-
-        </activity>
-        <activity android:name=".view10.TouchActivity">
-
-        </activity>
-        <activity android:name=".view11.TouchViewGroupActivity">
-
-        </activity>
-        <activity android:name=".view12.Activity12">
-
-        </activity>
-        <activity android:name=".view14.Activity14">
-
-        </activity>
-        <activity android:name=".view15.Activity15">
-
-        </activity>
-        <activity android:name=".view16.Activity16"></activity>
-        <activity android:name=".view17.Activity17">
-
-        </activity>
-        <activity android:name=".view22.FlowerActivity">
-        </activity>
-        <activity android:name=".view23.MeaasgeActivity">
-
-        </activity>
-        <activity android:name=".view26.Activity26">
-
-        </activity>
-        <activity android:name=".view27.Activity27">
-
-        </activity>
-        <activity android:name=".view28.Activity28">
+        <activity android:name="com.system.model.fanxing.class_fanxing.Main2Activity"></activity>
+        <activity android:name="com.system.Recycle.RecycleActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -34,46 +34,46 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         //字体变色
-        colorTrackTextView = (ColorTrackTextView) findViewById(R.id.colorTextView);
-        btn_1 = (Button) findViewById(R.id.btn_1);
-        btn_2 = (Button) findViewById(R.id.btn_2);
-        btn_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                colorTrackTextView.setmDireciton(ColorTrackTextView.Direction.LRFT_TO_RIFHT);
-                ValueAnimator valueAnimator = ObjectAnimator.ofFloat(0, 1);
-                valueAnimator.setDuration(2000);
-                valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                    @Override
-                    public void onAnimationUpdate(ValueAnimator animation) {
-                        float animatedValue = (float) animation.getAnimatedValue();
-
-                        colorTrackTextView.setmCurrentProgress(animatedValue);
-                    }
-                });
-                valueAnimator.start();
-            }
-        });
-        btn_2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                colorTrackTextView.setmDireciton(ColorTrackTextView.Direction.RIGHT_TO_LEFT);
-                ValueAnimator valueAnimator = ObjectAnimator.ofFloat(0, 1);
-                valueAnimator.setDuration(2000);
-                valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                    @Override
-                    public void onAnimationUpdate(ValueAnimator animation) {
-                        float animatedValue = (float) animation.getAnimatedValue();
-
-                        colorTrackTextView.setmCurrentProgress(animatedValue);
-                    }
-                });
-                valueAnimator.start();
-            }
-        });
-        //常见多条目属性菜单
-//        listDataScreenView = (ListDataScreenView) this.findViewById(R.id.view111);
-//        listDataScreenView.setAdapter(new ListScreenAdapter(this));
+//        colorTrackTextView = (ColorTrackTextView) findViewById(R.id.colorTextView);
+//        btn_1 = (Button) findViewById(R.id.btn_1);
+//        btn_2 = (Button) findViewById(R.id.btn_2);
+//        btn_1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                colorTrackTextView.setmDireciton(ColorTrackTextView.Direction.LRFT_TO_RIFHT);
+//                ValueAnimator valueAnimator = ObjectAnimator.ofFloat(0, 1);
+//                valueAnimator.setDuration(2000);
+//                valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//                    @Override
+//                    public void onAnimationUpdate(ValueAnimator animation) {
+//                        float animatedValue = (float) animation.getAnimatedValue();
+//
+//                        colorTrackTextView.setmCurrentProgress(animatedValue);
+//                    }
+//                });
+//                valueAnimator.start();
+//            }
+//        });
+//        btn_2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                colorTrackTextView.setmDireciton(ColorTrackTextView.Direction.RIGHT_TO_LEFT);
+//                ValueAnimator valueAnimator = ObjectAnimator.ofFloat(0, 1);
+//                valueAnimator.setDuration(2000);
+//                valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//                    @Override
+//                    public void onAnimationUpdate(ValueAnimator animation) {
+//                        float animatedValue = (float) animation.getAnimatedValue();
+//
+//                        colorTrackTextView.setmCurrentProgress(animatedValue);
+//                    }
+//                });
+//                valueAnimator.start();
+//            }
+//        });
+       // 常见多条目属性菜单
+        listDataScreenView = (ListDataScreenView) this.findViewById(R.id.view111);
+        listDataScreenView.setAdapter(new ListScreenAdapter(this));
     }
 
     private void initMyTextView() {

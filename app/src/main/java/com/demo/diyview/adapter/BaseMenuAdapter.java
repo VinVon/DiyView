@@ -8,7 +8,15 @@ import android.view.ViewGroup;
  */
 
 public abstract class BaseMenuAdapter {
+
+
     public abstract int getCount();
     public abstract View getTabView(int position, ViewGroup parent);
     public abstract View getMenuView(int position, ViewGroup parent);
+
+    public void setMenuOpen(View menuOpen) {
+    }
+
+    public void setMenuClose(View menuClose) {
+    }
 }

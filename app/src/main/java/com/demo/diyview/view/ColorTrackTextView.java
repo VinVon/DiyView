@@ -96,4 +96,5 @@ public class ColorTrackTextView extends android.support.v7.widget.AppCompatTextV
         this.mCurrentProgress = mCurrentProgress;
         invalidate();
     }
+
 }

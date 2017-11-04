@@ -28,12 +28,14 @@
         app:mtextSize="20sp" />
 
     <com.demo.diyview.view.ColorTrackTextView
+        android:visibility="gone"
         android:id="@+id/colorTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="体育"
          />
     <LinearLayout
+        android:visibility="gone"
         android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,8 +53,12 @@
             android:layout_height="wrap_content"
             android:text="right_to_left"/>
     </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="列表内容"/>
     <com.demo.diyview.view.ListDataScreenView
-        android:visibility="gone"
         android:id="@+id/view111"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

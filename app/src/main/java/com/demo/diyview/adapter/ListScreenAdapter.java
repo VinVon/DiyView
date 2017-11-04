@@ -1,10 +1,12 @@
 package com.demo.diyview.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.demo.diyview.R;
 
@@ -27,7 +29,7 @@ public class ListScreenAdapter extends BaseMenuAdapter {
     @Override
     public View getTabView(int position, ViewGroup parent) {
         TextView tabView  = (TextView) LayoutInflater.from(mContent).inflate(R.layout.tab_view, parent, false);
-        tabView.setText(mItens[position]);
+        tabView.setText(mItens[position]);tabView.setTextColor(Color.BLACK);
         return tabView;
     }
 
@@ -36,5 +38,15 @@ public class ListScreenAdapter extends BaseMenuAdapter {
         TextView menuView  = (TextView) LayoutInflater.from(mContent).inflate(R.layout.menu_view, parent, false);
         menuView.setText(mItens[position]);
         return menuView;
+    }
+
+    @Override
+    public void setMenuOpen(View menuOpen) {
+        ((TextView)menuOpen).setTextColor(Color.RED);
+    }
+
+    @Override
+    public void setMenuClose(View menuClose) {
+        ((TextView)menuClose).setTextColor(Color.BLACK);
     }
 }

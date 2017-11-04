@@ -89,6 +89,7 @@ class LockParentView : View{
         return true
     }
    public fun setCallBack(callBack:CallBack){
+
         this.callBack = callBack
     }
     public fun clearPoint(){
